@@ -2,6 +2,7 @@ import mygene
 from Bio.Blast.Applications import NcbiblastnCommandline
 import pandas as pd
 
+
 def fetch_mygene(genename, spiecies):
     genename = genename.upper()
     mg = mygene.MyGeneInfo()

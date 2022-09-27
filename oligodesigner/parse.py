@@ -31,7 +31,8 @@ def oligominer_param_parser(oligominer_param):
         conc2 = concA
 
     # Retrieve the stack table.
-    exec ('nn_table = mt.%s' % oligominer_param['nn_table'])
+    nn_table = getattr(mt, oligominer_param['nn_table'])
+    # exec ('nn_table = mt.%s' % oligominer_param['nn_table'])
     return (l, L, gcPercent, GCPercent, nn_table, tm, TM,
                    X, sal, form, sp, conc1, conc2, headerVal, bedVal,
                    OverlapModeVal, verbocity, reportVal, debugVal, metaVal,
