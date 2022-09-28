@@ -43,28 +43,28 @@ def check_refseqid_exist(fasta, return_entrezid=True):
         return refseqid
 
 
-def run_blast(input_file, output_file, database):
+def run_blast(input_file, output_file, database, task='blastn-short', strand='plus', num_threads=1):
     """
     run blast against transcriptome database. negative_seqid option does not work for an unknown reason.
     """
     blastn_cline = NcbiblastnCommandline(
-        task='blastn-short',
+        task=task,
         query=input_file,
         db=database,
-        # num_threads = 4,
-        strand='minus',
+        num_threads=num_threads,
+        strand=strand,
         outfmt='10 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore',
         out=output_file
     )
     stdout, stderr = blastn_cline()
 
 
-def run_blast_df(input_file, database, task='blastn-short', strand='minus', num_threads=1):
+def run_blast_df(input_file, database, task='blastn-short', strand='plus', num_threads=1):
     blastn_cline = NcbiblastnCommandline(
         task=task,
         query=input_file,
         db=database,
-        num_threads = num_threads,
+        num_threads=num_threads,
         strand=strand,
         outfmt='6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore',
         out='-'
@@ -174,6 +174,13 @@ def remove_oligo(oligominer_df, oligo_to_be_removed):
     return selected_oligo_df
 
 
+def reverse_complement_dataframe(df):
+    """
+    """
+    df['seq'] = df['seq'].apply(lambda x: x.reverse_complement())
+
+    return df
+
 def calc_oligo_interval(oligo_df, mean_scan_range=48):
     """
     """
@@ -187,28 +194,30 @@ def calc_oligo_interval(oligo_df, mean_scan_range=48):
     return interval_df
 
 
-def add_hcr_seq_v3(selected_oligo_df, hcr_initiator_set):
+def add_hcr_seq_v3(oligo_df, hcr_initiator_set):
     """
     add HCR sequences to both sides of split probes.
     """
-    splitseq_ll = hcr_initiator_set['splitseq_ll']
-    splitseq_rr = hcr_initiator_set['splitseq_rr']
-    splitseq_lr = hcr_initiator_set['splitseq_lr']
-    splitseq_rl = hcr_initiator_set['splitseq_rl']
-    anchorseq_ll = hcr_initiator_set['anchorseq_ll']
-    anchorseq_rr = hcr_initiator_set['anchorseq_rr']
-    anchorseq_lr = hcr_initiator_set['anchorseq_lr']
-    anchorseq_rl = hcr_initiator_set['anchorseq_rl']
+    seq_even_l = hcr_initiator_set['seq_even_l']
+    seq_odd_l = hcr_initiator_set['seq_odd_l']
+    seq_even_r = hcr_initiator_set['seq_even_r']
+    seq_odd_r = hcr_initiator_set['seq_odd_r']
 
-    selected_oligo_df = selected_oligo_df.sort_values(by='start')
+    # anchorseq_ll = hcr_initiator_set['anchorseq_ll']
+    # anchorseq_rr = hcr_initiator_set['anchorseq_rr']
+    # anchorseq_lr = hcr_initiator_set['anchorseq_lr']
+    # anchorseq_rl = hcr_initiator_set['anchorseq_rl']
 
-    even_oligo = selected_oligo_df[selected_oligo_df.index % 2 == 0]
-    even_hcr_oligo = (splitseq_ll + anchorseq_ll + even_oligo['seq'] + anchorseq_lr + splitseq_lr).rename('hcr_seq')
+    oligo_df = oligo_df.sort_values(by='start')
+
+    even_oligo = oligo_df[oligo_df.index % 2 == 0]
+    even_hcr_oligo = (seq_even_l + even_oligo['seq'] + seq_even_r).rename('hcr_seq')
     even_oligo = pd.concat([even_oligo, even_hcr_oligo], axis=1)
 
-    odd_oligo = selected_oligo_df[selected_oligo_df.index % 2 == 1]
-    odd_hcr_oligo = (splitseq_rl + anchorseq_rl + odd_oligo['seq'] + anchorseq_rr + splitseq_rr).rename('hcr_seq')
+    odd_oligo = oligo_df[oligo_df.index % 2 == 1]
+    odd_hcr_oligo = (seq_odd_l + odd_oligo['seq'] + seq_odd_r).rename('hcr_seq')
     odd_oligo = pd.concat([odd_oligo, odd_hcr_oligo], axis=1)
 
     hcr_oligo_set = (pd.concat([even_oligo, odd_oligo], axis=0)).sort_values(by='start')
+
     return hcr_oligo_set

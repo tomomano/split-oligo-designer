@@ -4,6 +4,7 @@ import pandas as pd
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 
+
 def gen_file_path(input_file):
     """
     """
@@ -11,10 +12,9 @@ def gen_file_path(input_file):
     basename = os.path.splitext(os.path.basename(input_file))[0]
     oligominer_fastq = os.path.join(result_dir, basename) + '.fastq'
     oligominer_fasta = os.path.join(result_dir, basename) + '_oligominer.fasta'
-    blast_result = os.path.join(result_dir, basename) + '_blast_result.csv'
     oligo_sets = os.path.join(result_dir, basename) + '_oligosets.csv'
     param_file = os.path.join(result_dir, basename) + '_parameters.csv'
-    return oligominer_fastq, oligominer_fasta, blast_result, oligo_sets, param_file
+    return oligominer_fastq, oligominer_fasta, oligo_sets, param_file
 
 
 def record_param(mFISH3D_param, oligominer_param, param_file):
