@@ -70,7 +70,7 @@ def dataframe_from_oligominer(oligominer_fastq):
             gene_id_list.append(record.id)
             oligo_id_list.append(record.id + '_' + str(count))
             seq_list.append(record.seq)
-            hyb_start_end = record.description.split(', ')[-1][5:].split('-')
+            hyb_start_end = record.description.split(':')[-1].split('-')
             hyb_start_list.append(int(hyb_start_end[0]))
             hyb_end_list.append(int(hyb_start_end[1]))
     fastq_df = pd.DataFrame(

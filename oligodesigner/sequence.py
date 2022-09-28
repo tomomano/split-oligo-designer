@@ -174,15 +174,16 @@ def remove_oligo(oligominer_df, oligo_to_be_removed):
     return selected_oligo_df
 
 
-def calc_oligo_interval(oligo_df, oligo_number):
+def calc_oligo_interval(oligo_df, mean_scan_range=48):
     """
     """
     dist_before = (oligo_df['start'] - oligo_df['end'].shift(periods=1)).rename('interval_before')
     dist_after = (oligo_df['start'].shift(periods=-1) - oligo_df['end']).rename('interval_after')
-    # To select the probe sets, scan the sum of gaps between each pair in 24 sets, then find minimal point.
-    mean_interval = dist_before.rolling(oligo_number, min_periods=oligo_number).mean()
+
+    mean_interval = dist_before.rolling(mean_scan_range, min_periods=mean_scan_range).mean()
     mean_interval = mean_interval.rename('mean_interval')
     interval_df = pd.concat([dist_after, mean_interval], axis=1)
+
     return interval_df
 
 
