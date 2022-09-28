@@ -1,0 +1,253 @@
+Results produced by blockParse 1.7
+132 candidate probes identified in 2.94 kb yielding 44.96 candidates/kb
+Note: only the first failure encountered is reported. The order of checks is 'N' bases > prohib. sequences > Tm > %G+C
+----------------------------------------------------------------------------------------------------
+132 of 240 / 55.0000% of sequence windows examined resulted in candidate probes
+0 of 240 / 0.0000% of sequence windows examined were skipped due to interspersed 'N' bases
+0 of 240 / 0.0000% of sequence windows examined were skipped because they exclusively contained 'N' bases
+50 of 240 / 20.8333% of sequence windows examined failed because they contained prohibited sequences
+0 of 240 / 0.0000% of sequence windows examined failed because the Tm was below 0
+0 of 240 / 0.0000% of sequence windows examined failed because the Tm was above 100
+0 of 240 / 0.0000% of sequence windows examined failed because the %G+C was below 25
+58 of 240 / 24.1667% of sequence windows examined failed because the %G+C was above 75
+----------------------------------------------------------------------------------------------------
+Picking a candidate probe of 20 bases starting at base 1
+Sequence window of 20 bases beginning at 22 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 24 failed due to %G+C of 90.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 26 failed due to %G+C of 90.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 28 failed due to %G+C of 90.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 30 failed due to %G+C of 95.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 32 failed due to %G+C of 100.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 34 failed due to %G+C of 100.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 36 failed due to %G+C of 95.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 38 failed due to %G+C of 90.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 40 failed due to %G+C of 90.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 42 failed due to %G+C of 90.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 44 failed due to %G+C of 90.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 46 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 48 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 50 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 52 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Picking a candidate probe of 20 bases starting at base 54
+Sequence window of 20 bases beginning at 75 failed due to %G+C of 100.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 77 failed due to %G+C of 100.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 79 failed due to %G+C of 100.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 81 failed due to %G+C of 100.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 83 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 84 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 85 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 86 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 87 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 88 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 89 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 90 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 91 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 92 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 93 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 94 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 95 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 96 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 97 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 98 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 99 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 100 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 101 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 102 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 103 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 104 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 105 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 106 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 107 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 108 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 109 failed due to the presence of prohibited sequence(s) GGGGGG
+Sequence window of 20 bases beginning at 110 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 112 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 114 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 116 failed due to %G+C of 90.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 118 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 120 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 122 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 124 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 126 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 128 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 130 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Picking a candidate probe of 20 bases starting at base 132
+Picking a candidate probe of 20 bases starting at base 153
+Picking a candidate probe of 20 bases starting at base 174
+Picking a candidate probe of 20 bases starting at base 195
+Picking a candidate probe of 20 bases starting at base 216
+Picking a candidate probe of 20 bases starting at base 237
+Sequence window of 20 bases beginning at 258 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Picking a candidate probe of 20 bases starting at base 260
+Sequence window of 20 bases beginning at 281 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 283 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 285 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 287 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Picking a candidate probe of 20 bases starting at base 289
+Picking a candidate probe of 20 bases starting at base 310
+Picking a candidate probe of 20 bases starting at base 331
+Picking a candidate probe of 20 bases starting at base 352
+Picking a candidate probe of 20 bases starting at base 373
+Picking a candidate probe of 20 bases starting at base 394
+Picking a candidate probe of 20 bases starting at base 415
+Sequence window of 20 bases beginning at 436 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 438 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 440 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 442 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Picking a candidate probe of 20 bases starting at base 444
+Picking a candidate probe of 20 bases starting at base 465
+Picking a candidate probe of 20 bases starting at base 486
+Picking a candidate probe of 20 bases starting at base 507
+Picking a candidate probe of 20 bases starting at base 528
+Picking a candidate probe of 20 bases starting at base 549
+Picking a candidate probe of 20 bases starting at base 570
+Picking a candidate probe of 20 bases starting at base 591
+Picking a candidate probe of 20 bases starting at base 612
+Picking a candidate probe of 20 bases starting at base 633
+Picking a candidate probe of 20 bases starting at base 654
+Picking a candidate probe of 20 bases starting at base 675
+Picking a candidate probe of 20 bases starting at base 696
+Picking a candidate probe of 20 bases starting at base 717
+Picking a candidate probe of 20 bases starting at base 738
+Picking a candidate probe of 20 bases starting at base 759
+Picking a candidate probe of 20 bases starting at base 780
+Picking a candidate probe of 20 bases starting at base 801
+Picking a candidate probe of 20 bases starting at base 822
+Picking a candidate probe of 20 bases starting at base 843
+Picking a candidate probe of 20 bases starting at base 864
+Picking a candidate probe of 20 bases starting at base 885
+Picking a candidate probe of 20 bases starting at base 906
+Picking a candidate probe of 20 bases starting at base 927
+Picking a candidate probe of 20 bases starting at base 948
+Picking a candidate probe of 20 bases starting at base 969
+Picking a candidate probe of 20 bases starting at base 990
+Picking a candidate probe of 20 bases starting at base 1011
+Picking a candidate probe of 20 bases starting at base 1032
+Picking a candidate probe of 20 bases starting at base 1053
+Picking a candidate probe of 20 bases starting at base 1074
+Picking a candidate probe of 20 bases starting at base 1095
+Picking a candidate probe of 20 bases starting at base 1116
+Picking a candidate probe of 20 bases starting at base 1137
+Picking a candidate probe of 20 bases starting at base 1158
+Sequence window of 20 bases beginning at 1179 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Picking a candidate probe of 20 bases starting at base 1181
+Picking a candidate probe of 20 bases starting at base 1202
+Picking a candidate probe of 20 bases starting at base 1223
+Picking a candidate probe of 20 bases starting at base 1244
+Picking a candidate probe of 20 bases starting at base 1265
+Picking a candidate probe of 20 bases starting at base 1286
+Picking a candidate probe of 20 bases starting at base 1307
+Picking a candidate probe of 20 bases starting at base 1328
+Picking a candidate probe of 20 bases starting at base 1349
+Picking a candidate probe of 20 bases starting at base 1370
+Picking a candidate probe of 20 bases starting at base 1391
+Picking a candidate probe of 20 bases starting at base 1412
+Picking a candidate probe of 20 bases starting at base 1433
+Picking a candidate probe of 20 bases starting at base 1454
+Picking a candidate probe of 20 bases starting at base 1475
+Picking a candidate probe of 20 bases starting at base 1496
+Picking a candidate probe of 20 bases starting at base 1517
+Picking a candidate probe of 20 bases starting at base 1538
+Picking a candidate probe of 20 bases starting at base 1559
+Picking a candidate probe of 20 bases starting at base 1580
+Picking a candidate probe of 20 bases starting at base 1601
+Picking a candidate probe of 20 bases starting at base 1622
+Picking a candidate probe of 20 bases starting at base 1643
+Picking a candidate probe of 20 bases starting at base 1664
+Picking a candidate probe of 20 bases starting at base 1685
+Picking a candidate probe of 20 bases starting at base 1706
+Sequence window of 20 bases beginning at 1727 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1729 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1731 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1733 failed due to %G+C of 90.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1735 failed due to %G+C of 90.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1737 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1739 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1741 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1743 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1745 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1747 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1749 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Picking a candidate probe of 20 bases starting at base 1751
+Picking a candidate probe of 20 bases starting at base 1772
+Sequence window of 20 bases beginning at 1793 failed due to the presence of prohibited sequence(s) CCCCCC
+Sequence window of 20 bases beginning at 1794 failed due to the presence of prohibited sequence(s) CCCCCC
+Sequence window of 20 bases beginning at 1795 failed due to the presence of prohibited sequence(s) CCCCCC
+Sequence window of 20 bases beginning at 1796 failed due to the presence of prohibited sequence(s) CCCCCC
+Sequence window of 20 bases beginning at 1797 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1799 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1801 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1803 failed due to %G+C of 85.00 being below the allowed range of 25-75
+Sequence window of 20 bases beginning at 1805 failed due to %G+C of 80.00 being below the allowed range of 25-75
+Picking a candidate probe of 20 bases starting at base 1807
+Picking a candidate probe of 20 bases starting at base 1828
+Picking a candidate probe of 20 bases starting at base 1849
+Picking a candidate probe of 20 bases starting at base 1870
+Picking a candidate probe of 20 bases starting at base 1891
+Picking a candidate probe of 20 bases starting at base 1912
+Picking a candidate probe of 20 bases starting at base 1933
+Picking a candidate probe of 20 bases starting at base 1954
+Picking a candidate probe of 20 bases starting at base 1975
+Picking a candidate probe of 20 bases starting at base 1996
+Picking a candidate probe of 20 bases starting at base 2017
+Picking a candidate probe of 20 bases starting at base 2038
+Picking a candidate probe of 20 bases starting at base 2059
+Picking a candidate probe of 20 bases starting at base 2080
+Picking a candidate probe of 20 bases starting at base 2101
+Picking a candidate probe of 20 bases starting at base 2122
+Picking a candidate probe of 20 bases starting at base 2143
+Sequence window of 20 bases beginning at 2164 failed due to the presence of prohibited sequence(s) CCCCCC
+Sequence window of 20 bases beginning at 2165 failed due to the presence of prohibited sequence(s) CCCCCC
+Sequence window of 20 bases beginning at 2166 failed due to the presence of prohibited sequence(s) CCCCCC
+Sequence window of 20 bases beginning at 2167 failed due to the presence of prohibited sequence(s) CCCCCC
+Picking a candidate probe of 20 bases starting at base 2168
+Picking a candidate probe of 20 bases starting at base 2189
+Picking a candidate probe of 20 bases starting at base 2210
+Picking a candidate probe of 20 bases starting at base 2231
+Picking a candidate probe of 20 bases starting at base 2252
+Picking a candidate probe of 20 bases starting at base 2273
+Picking a candidate probe of 20 bases starting at base 2294
+Picking a candidate probe of 20 bases starting at base 2315
+Picking a candidate probe of 20 bases starting at base 2336
+Picking a candidate probe of 20 bases starting at base 2357
+Picking a candidate probe of 20 bases starting at base 2378
+Picking a candidate probe of 20 bases starting at base 2399
+Picking a candidate probe of 20 bases starting at base 2420
+Picking a candidate probe of 20 bases starting at base 2441
+Picking a candidate probe of 20 bases starting at base 2462
+Picking a candidate probe of 20 bases starting at base 2483
+Picking a candidate probe of 20 bases starting at base 2504
+Picking a candidate probe of 20 bases starting at base 2525
+Picking a candidate probe of 20 bases starting at base 2546
+Picking a candidate probe of 20 bases starting at base 2567
+Picking a candidate probe of 20 bases starting at base 2588
+Picking a candidate probe of 20 bases starting at base 2609
+Picking a candidate probe of 20 bases starting at base 2630
+Picking a candidate probe of 20 bases starting at base 2651
+Picking a candidate probe of 20 bases starting at base 2672
+Picking a candidate probe of 20 bases starting at base 2693
+Picking a candidate probe of 20 bases starting at base 2714
+Picking a candidate probe of 20 bases starting at base 2735
+Picking a candidate probe of 20 bases starting at base 2756
+Picking a candidate probe of 20 bases starting at base 2777
+Picking a candidate probe of 20 bases starting at base 2798
+Picking a candidate probe of 20 bases starting at base 2819
+Sequence window of 20 bases beginning at 2840 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2841 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2842 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2843 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2844 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2845 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2846 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2847 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2848 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2849 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2850 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2851 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2852 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2853 failed due to the presence of prohibited sequence(s) TTTTTT
+Sequence window of 20 bases beginning at 2854 failed due to the presence of prohibited sequence(s) TTTTTT
+Picking a candidate probe of 20 bases starting at base 2855
+Picking a candidate probe of 20 bases starting at base 2876
+Picking a candidate probe of 20 bases starting at base 2897
+Picking a candidate probe of 20 bases starting at base 2918

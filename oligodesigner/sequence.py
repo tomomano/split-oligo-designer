@@ -1,6 +1,13 @@
 import mygene
 from Bio.Blast.Applications import NcbiblastnCommandline
+from Bio import SeqIO
 import pandas as pd
+
+
+def refseqid_from_fasta(fasta):
+    record = list(SeqIO.parse(fasta, 'fasta'))
+
+    return record[0].id
 
 
 def fetch_mygene(genename, spiecies):
@@ -9,6 +16,31 @@ def fetch_mygene(genename, spiecies):
     geneinfo = mg.querymany(genename, scopes='symbol', fields='ensembl.gene', species=spiecies,
                             verbose=False)
     return geneinfo
+
+
+def fetch_mygene_from_refseqid(refseqid, species=None):
+    mg = mygene.MyGeneInfo()
+    geneinfo = mg.querymany(refseqid, scopes='refseq', fields='ensembl.gene', species=species,
+                            verbose=False)
+    return geneinfo
+
+
+def check_refseqid_exist(fasta, return_entrezid=True):
+    refseqid = refseqid_from_fasta(fasta)
+    gene_info = fetch_mygene_from_refseqid(refseqid)
+
+    if '_id' in gene_info[0].keys():
+        print(f'refseq id {refseqid} was found')
+        entrezid = gene_info[0]['_id']
+    else:
+        refseqid = None
+        entrezid = None
+        print(f'no refseq id was found')
+
+    if return_entrezid:
+        return entrezid
+    else:
+        return refseqid
 
 
 def run_blast(input_file, output_file, database):
@@ -27,7 +59,70 @@ def run_blast(input_file, output_file, database):
     stdout, stderr = blastn_cline()
 
 
-def exclude_self(df_blast, geneinfo):
+def run_blast_df(input_file, database, task='blastn-short', strand='minus', num_threads=1):
+    blastn_cline = NcbiblastnCommandline(
+        task=task,
+        query=input_file,
+        db=database,
+        num_threads = num_threads,
+        strand=strand,
+        outfmt='6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore',
+        out='-'
+    )
+    output = blastn_cline()[0].strip()
+    rows = [line.split() for line in output.splitlines()]
+    cols = ['qseqid', 'sseqid', 'pident', 'length',
+            'mismatch', 'gapopen', 'qstart', 'qend',
+            'sstart', 'send', 'evalue', 'bitscore']
+
+    data_types = {'pident': float, 'length': int, 'mismatch': int,
+                  'gapopen': int, 'qstart': int, 'qend': int,
+                  'sstart': int, 'send': int, 'evalue': float,
+                  'bitscore': float}
+
+    df = pd.DataFrame(rows, columns=cols).astype(data_types)
+
+    return df
+
+
+def get_homology_in_database(fasta, database, scopes='ensembl.transcript', num_threads=1, similarity_threshold=0.15):
+    """
+
+    """
+    df = run_blast_df(fasta, database, task='blastn', strand='plus', num_threads=num_threads)
+    transcript_series = df['sseqid'].str.split('.').str[0] # .drop_duplicates(keep='first')
+
+    mg = mygene.MyGeneInfo()
+    df_transcript_id = pd.DataFrame(
+        mg.querymany(transcript_series, scopes=scopes, fields='id', verbose=False))['_id']
+
+    # seqid = check_refseqid_exist(fasta, return_entrezid=True)
+
+    # if seqid is None:
+    gp = pd.Series((df['pident'] * df['length']).values, index=df_transcript_id.values)
+    gp = gp.groupby(level=0).sum()
+    gp = (gp / gp.sum()).sort_values(ascending=False)
+
+    top_hit = gp.index[0]
+    seqid = top_hit
+
+    # mg = mygene.MyGeneInfo()
+    res = mg.querymany(top_hit, scopes='entrezgene', fields='symbol', verbose=False)[0]['symbol']
+    print(f'The sequence is the most similar to {res} with the score of {gp[0]}')
+
+    if gp[gp > similarity_threshold].size > 1:
+        print(f'Homologous transcript(s) was identified. This may impact on the selection of the oligos')
+        for hit in gp[gp > similarity_threshold].index:
+            if hit != top_hit:
+                res = mg.querymany(hit, scopes='entrezgene', fields='symbol', verbose=False)[0]['symbol']
+                print(f'Homologous transcript {res} was found with the score of {gp.loc[hit]}')
+    # else:
+    #     pass
+
+    return seqid
+
+
+def exclude_self(df_blast, gene_id):
     """
     omit the gene of interest from the blast result
     by referring the gene information from mygene.
@@ -35,8 +130,9 @@ def exclude_self(df_blast, geneinfo):
     mg = mygene.MyGeneInfo()
     transcript_series = df_blast['sseqid'].str.split('.').str[0].drop_duplicates(keep='first')
     df_transcript_id = pd.DataFrame(mg.querymany(transcript_series, scopes='ensembl.transcript', fields='id', verbose = False))
-    gene_id = geneinfo[0]['_id']
+    # gene_id = geneinfo[0]['_id']
     df_selfrmv = df_blast[~df_blast['sseqid'].str.split('.').str[0].isin(df_transcript_id[df_transcript_id['_id']==gene_id]['query'])]
+
     return df_selfrmv.reset_index(drop=True)
 
 
