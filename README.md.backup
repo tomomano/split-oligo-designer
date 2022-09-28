@@ -4,7 +4,7 @@
 
 This repository contains the code to design the oligonucleotides for mFISH3D.
 
-The code is heavily relying on [OligoMiner]([http://dx.doi.org/10.1073/pnas.1714530115](http://dx.doi.org/10.1073/pnas.1714530115)) tool. 
+The code is heavily relying on [OligoMiner](http://dx.doi.org/10.1073/pnas.1714530115) tool. 
 
 
 
@@ -66,7 +66,7 @@ If the gap between two non-specific binding is more than minimum_offtarget_gap, 
 The sequences of HCR fragments. The example design can be found in `./oligodesigner/parameters.py`
 
 `self_remove` 
-Recommended: True. Set self_remove True if you want to remove the template sequence from
+Set self_remove True if you want to remove the template sequence from
 off-target analysis. Otherwise, the gene of your interest could be regarded as an off-target product.
 Turn this to False when your template is not found in database (e.g. GFP).
 
@@ -102,8 +102,10 @@ oligominer_param = {
 
 ## Citation
 
-Please cite according to the enclosed [citation.bib](./citation.bib):
+	Murakami et al.,
 
+	Beliveau, B.J., Kishi, J.Y., Sasaki, H.M. et al. OligoMiner provides a rapid, flexible environment for the design of genome-scale oligonucleotide in situ hybridization probes. PNAS (2018) https://doi.org/10.1073/pnas.1714530115
+	
 
 
 ## License
