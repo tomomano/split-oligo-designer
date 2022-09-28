@@ -12,9 +12,9 @@ def generator(mFISH3D_param, oligominer_param):
             'fasta': fasta file of the template sequence
             'database': database for blast
             'minimum_offtarget_gap': If the gap between two non-specific binding is more than minimum_offtarget_gap,
-                the pair is not regarded to cause a off-target signal. Default 100.
+                the pair is not regarded to cause a off-target signal. Recommended value: 100.
             'hcr_seqs': sequences of HCR fragments. The example design can be found in oligodesigner/parameters.py
-            'self_remove': Default True. set self_remove True if you want to remove the template sequence from
+            'self_remove': Recommended: True. set self_remove True if you want to remove the template sequence from
                 off-target analysis. Otherwise, the gene of your interest could be regarded as an off-target product.
                 Turn this to False when your template is not found in database (e.g. GFP).
     """

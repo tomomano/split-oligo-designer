@@ -1,9 +1,8 @@
-genename,Slc17a7
-hcr_bnum,B1
-input_file,/home/tmurakami/src/split-oligo-designer/data/slc17a7/slc17a7_hs.fasta
+database,./data/human_transcriptome/human_transcriptome_db
+fasta,/home/tmurakami/src/split-oligo-designer/data/slc17a7/slc17a7_hs.fasta
+hcr_seqs,"{'seq_even_l': 'GAGGAGGGCAGCAAACGGaa', 'seq_odd_r': 'atGAAGAGTCTTCCTTTACG', 'seq_even_r': '', 'seq_odd_l': ''}"
 minimum_offtarget_gap,100
-oligo_number,48
-species,human
+self_remove,True
 bedVal,False
 concA,25
 concB,25
