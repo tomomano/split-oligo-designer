@@ -54,7 +54,7 @@ mFISH3D_param = {
             'seq_odd_r':'atGAAGAGTCTTCCTTTACG',
             'seq_even_r':'',
             'seq_odd_l':''
-        }
+        },
     'self_remove': True # set this True if your template sequence appears in database.
 }
 ```
@@ -73,7 +73,7 @@ Turn this to False when your template is not found in database (e.g. GFP).
 
 
 The code requires the parameters for OligoMiner. The example is below.
-```
+```python
 oligominer_param = {
     'l':20,
     'L':20,
@@ -102,9 +102,9 @@ oligominer_param = {
 
 ## Citation
 
-	Murakami et al.,
+> Murakami et al., Unpublished yet.
 
-	Beliveau, B.J., Kishi, J.Y., Sasaki, H.M. et al. OligoMiner provides a rapid, flexible environment for the design of genome-scale oligonucleotide in situ hybridization probes. PNAS (2018) https://doi.org/10.1073/pnas.1714530115
+> Beliveau, B.J., Kishi, J.Y., Sasaki, H.M. et al. OligoMiner provides a rapid, flexible environment for the design of genome-scale oligonucleotide in situ hybridization probes. PNAS (2018) https://doi.org/10.1073/pnas.1714530115
 	
 
 
