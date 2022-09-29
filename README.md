@@ -25,7 +25,7 @@ Make sure to set the path to the BLAST.
 $ git clone <https://github.com/tatz-murakami/split-oligo-designer.git>
 $ cd split-oligo-designer
 $ conda env create -f environment.yml
-$ conda activate oligodesigner
+$ conda activate oligo
 ```
 
 ## Database and template sequence

@@ -1,0 +1,13 @@
+name: oligo
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab=3.2
+  - numpy=1.23.1
+  - pandas=1.4.4
+  - pip=22.1.2
+  - python=3.8.13
+  - pip:
+    - biopython==1.79
+    - mygene==3.2.2
