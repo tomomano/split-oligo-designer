@@ -22,7 +22,7 @@ Make sure to set the path to the BLAST.
 2. Create a new environement (python=3.8), and install the dependencies.
 
 ```
-$ git clone <https://github.com/tatz-murakami/split-oligo-designer.git>
+$ git clone https://github.com/tatz-murakami/split-oligo-designer.git
 $ cd split-oligo-designer
 $ conda env create -f environment.yml
 $ conda activate oligo
