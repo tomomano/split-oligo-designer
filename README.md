@@ -22,7 +22,7 @@ Make sure to set the path to the BLAST.
 2. Create a new environement (python=3.8), and install the dependencies.
 
 ```
-$ git clone <https://github.com/tatz-murakami/split-oligo-designer.git>
+$ git clone https://github.com/tatz-murakami/split-oligo-designer.git
 $ cd split-oligo-designer
 $ conda env create -f environment.yml
 $ conda activate oligo
@@ -102,7 +102,7 @@ oligominer_param = {
 
 ## Citation
 
-> Murakami et al., Unpublished yet.
+> Murakami and Heintz. Multiplexed and scalable cellular phenotyping toward the standardized three-dimensional human neuroanatomy. bioRxiv, 2022
 
 > Beliveau, B.J., Kishi, J.Y., Sasaki, H.M. et al. OligoMiner provides a rapid, flexible environment for the design of genome-scale oligonucleotide in situ hybridization probes. PNAS (2018) https://doi.org/10.1073/pnas.1714530115
 	
