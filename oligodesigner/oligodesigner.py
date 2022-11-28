@@ -5,7 +5,7 @@ from oligodesigner import sequence
 import pandas as pd
 
 
-def generator(mFISH3D_param, oligominer_param):
+def generator(mFISH3D_param, oligominer_param, num_threads=1):
     """
     Arguments:
         mFISH3D_param (dict)
@@ -43,12 +43,12 @@ def generator(mFISH3D_param, oligominer_param):
     if self_remove:
         seqid = sequence.check_refseqid_exist(fasta, return_entrezid=True)
         if seqid is None:
-            seqid = sequence.get_homology_in_database(fasta, database, num_threads=32)
+            seqid = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
         else:
-            _ = sequence.get_homology_in_database(fasta, database, num_threads=32)
+            _ = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
 
         # run blast
-        df_blast = sequence.run_blast_df(oligominer_fasta, database, task='blastn-short', strand='plus', num_threads=48)
+        df_blast = sequence.run_blast_df(oligominer_fasta, database, task='blastn-short', strand='plus', num_threads=num_threads)
 
         # Exclude sequences that are homologous to the gene of a interest from the result
         df_blast = sequence.exclude_self(df_blast, seqid)
@@ -58,7 +58,7 @@ def generator(mFISH3D_param, oligominer_param):
 
         oligo_df = sequence.remove_oligo(oligominer_df, oligo_to_be_removed)
     else:
-        df_blast = sequence.run_blast_df(oligominer_fasta, database, task='blastn-short', strand='plus', num_threads=48)
+        df_blast = sequence.run_blast_df(oligominer_fasta, database, task='blastn-short', strand='plus', num_threads=num_threads)
         oligo_to_be_removed = sequence.get_off_targeting_oligo(minimum_offtarget_gap, df_blast)
         oligo_df = sequence.remove_oligo(oligominer_df, oligo_to_be_removed)
 
