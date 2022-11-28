@@ -102,7 +102,7 @@ oligominer_param = {
 
 ## Citation
 
-> Murakami and Heintz. Multiplexed and scalable cellular phenotyping toward the standardized three-dimensional human neuroanatomy. bioRxiv, 2022
+> Murakami and Heintz. Multiplexed and scalable cellular phenotyping toward the standardized three-dimensional human neuroanatomy. bioRxiv (2022) https://doi.org/10.1101/2022.11.23.517711 
 
 > Beliveau, B.J., Kishi, J.Y., Sasaki, H.M. et al. OligoMiner provides a rapid, flexible environment for the design of genome-scale oligonucleotide in situ hybridization probes. PNAS (2018) https://doi.org/10.1073/pnas.1714530115
 	
