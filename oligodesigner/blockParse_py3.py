@@ -52,6 +52,7 @@ from Bio import SeqIO
 
 # Import regex module.
 import re
+import os
 
 class SequenceCrawler:
     def __init__(self, inputFile, l, L, gcPercent, GCPercent, nn_table, tm, TM,
@@ -674,7 +675,11 @@ class SequenceCrawler:
                 i += 1
 
         # Determine the stem of the input filename.
-        fileName = str(self.inputFile).split('.')[0]
+        # fileName = str(self.inputFile).split('.')[0]
+        result_dir = os.path.dirname(str(self.inputFile))
+        basename = os.path.splitext(os.path.basename(str(self.inputFile)))[0]
+        fileName = os.path.join(result_dir, basename)
+        
 
         # Determine the name of the output file.
         if self.outNameVal is None:
