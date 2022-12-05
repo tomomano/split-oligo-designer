@@ -26,6 +26,8 @@ $ git clone https://github.com/tatz-murakami/split-oligo-designer.git
 $ cd split-oligo-designer
 $ conda env create -f environment.yml
 $ conda activate oligo
+
+$ pip install . # install oligodesigner
 ```
 
 ## Database and template sequence
