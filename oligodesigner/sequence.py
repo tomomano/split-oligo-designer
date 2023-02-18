@@ -127,14 +127,14 @@ def exclude_self(df_blast, gene_id):
     omit the gene of interest from the blast result
     by referring the gene information from mygene.
     """
-    mg = mygene.MyGeneInfo()
-    transcript_series = df_blast['sseqid'].str.split('.').str[0].drop_duplicates(keep='first')
-    df_transcript_id = pd.DataFrame(mg.querymany(transcript_series, scopes='ensembl.transcript', fields='id', verbose = False))
+    #mg = mygene.MyGeneInfo()
+    #transcript_series = df_blast['sseqid'].str.split('.').str[0].drop_duplicates(keep='first')
+    #df_transcript_id = pd.DataFrame(mg.querymany(transcript_series, scopes='ensembl.transcript', fields='id', verbose = False))
     # gene_id = geneinfo[0]['_id']
-    df_selfrmv = df_blast[~df_blast['sseqid'].str.split('.').str[0].isin(df_transcript_id[df_transcript_id['_id']==gene_id]['query'])]
-
+    #df_selfrmv = df_blast[~df_blast['sseqid'].str.split('.').str[0].isin(df_transcript_id[df_transcript_id['_id']==gene_id]['query'])]
+    gene_id = gene_id.split(".")[0]
+    df_selfrmv = df_blast[~df_blast['sseqid'].str.split('.').str[0].isin([gene_id])]
     return df_selfrmv.reset_index(drop=True)
-
 
 def get_off_targeting_oligo(minimum_offtarget_gap, df_blast):
     """
