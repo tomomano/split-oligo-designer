@@ -41,11 +41,12 @@ def generator(mFISH3D_param, oligominer_param, num_threads=1):
     io.add_id(oligominer_fasta)
 
     if self_remove:
-        seqid = sequence.check_refseqid_exist(fasta, return_entrezid=True)
-        if seqid is None:
-            seqid = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
-        else:
-            _ = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
+        seqid = sequence.refseqid_from_fasta(fasta)
+        # seqid = sequence.check_refseqid_exist(fasta, return_entrezid=False)
+        # if seqid is None:
+        #     seqid = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
+        # else:
+        #     _ = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
 
         # run blast
         df_blast = sequence.run_blast_df(oligominer_fasta, database, task='blastn-short', strand='plus', num_threads=num_threads)
@@ -55,8 +56,10 @@ def generator(mFISH3D_param, oligominer_param, num_threads=1):
 
         # Remove combination if sstart and send are close enough and if they are rective combination.
         oligo_to_be_removed = sequence.get_off_targeting_oligo(minimum_offtarget_gap, df_blast)
+        print("These sequences were removed because BLAST detected potential off-target binding", oligo_to_be_removed)
 
         oligo_df = sequence.remove_oligo(oligominer_df, oligo_to_be_removed)
+
     else:
         df_blast = sequence.run_blast_df(oligominer_fasta, database, task='blastn-short', strand='plus', num_threads=num_threads)
         oligo_to_be_removed = sequence.get_off_targeting_oligo(minimum_offtarget_gap, df_blast)

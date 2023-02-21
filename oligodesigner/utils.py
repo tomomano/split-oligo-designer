@@ -39,7 +39,7 @@ def visualize_seq(target_fasta, res_table):
     for i in range(0, len(target), 50):
         log.green("             ID: " + "".join(out2[i:i+50]))
         log.blue(" Probe (3'->5'): " + "".join(out1[i:i+50]))
-        log.black("Target (5'->3'): " + target.seq[i:i+50])
+        log.black("Target (5'->3'): " + target.seq[i:i+50] + " " + str(i+50))
 
 def export_opool_spreadsheet(poolname, res_table, savename):
     """
