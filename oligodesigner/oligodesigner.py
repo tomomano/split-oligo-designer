@@ -45,7 +45,7 @@ def generator(mFISH3D_param, oligominer_param, num_threads=1):
         if seqid is None:
             seqid = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
         else:
-            _ = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
+            pass
 
         # run blast
         df_blast = sequence.run_blast_df(oligominer_fasta, database, task='blastn-short', strand='plus', num_threads=num_threads)

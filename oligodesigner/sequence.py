@@ -90,15 +90,13 @@ def get_homology_in_database(fasta, database, scopes='ensembl.transcript', num_t
 
     """
     df = run_blast_df(fasta, database, task='blastn', strand='plus', num_threads=num_threads)
-    transcript_series = df['sseqid'].str.split('.').str[0] # .drop_duplicates(keep='first')
+    transcript_series = df['sseqid'].str.split('.').str[0]
 
     mg = mygene.MyGeneInfo()
     df_transcript_id = pd.DataFrame(
         mg.querymany(transcript_series, scopes=scopes, fields='id', verbose=False))['_id']
 
-    # seqid = check_refseqid_exist(fasta, return_entrezid=True)
 
-    # if seqid is None:
     gp = pd.Series((df['pident'] * df['length']).values, index=df_transcript_id.values)
     gp = gp.groupby(level=0).sum()
     gp = (gp / gp.sum()).sort_values(ascending=False)
@@ -106,7 +104,7 @@ def get_homology_in_database(fasta, database, scopes='ensembl.transcript', num_t
     top_hit = gp.index[0]
     seqid = top_hit
 
-    # mg = mygene.MyGeneInfo()
+
     res = mg.querymany(top_hit, scopes='entrezgene', fields='symbol', verbose=False)[0]['symbol']
     print(f'The sequence is the most similar to {res} with the score of {gp[0]}')
 
@@ -116,8 +114,6 @@ def get_homology_in_database(fasta, database, scopes='ensembl.transcript', num_t
             if hit != top_hit:
                 res = mg.querymany(hit, scopes='entrezgene', fields='symbol', verbose=False)[0]['symbol']
                 print(f'Homologous transcript {res} was found with the score of {gp.loc[hit]}')
-    # else:
-    #     pass
 
     return seqid
 
@@ -130,10 +126,12 @@ def exclude_self(df_blast, gene_id):
     mg = mygene.MyGeneInfo()
     transcript_series = df_blast['sseqid'].str.split('.').str[0].drop_duplicates(keep='first')
     df_transcript_id = pd.DataFrame(mg.querymany(transcript_series, scopes='ensembl.transcript', fields='id', verbose = False))
-    # gene_id = geneinfo[0]['_id']
-    df_selfrmv = df_blast[~df_blast['sseqid'].str.split('.').str[0].isin(df_transcript_id[df_transcript_id['_id']==gene_id]['query'])]
-
-    return df_selfrmv.reset_index(drop=True)
+    
+    if not '_id' in df_transcript_id.columns:
+        return df_blast
+    else:
+        df_selfrmv = df_blast[~df_blast['sseqid'].str.split('.').str[0].isin(df_transcript_id[df_transcript_id['_id']==gene_id]['query'])]
+        return df_selfrmv.reset_index(drop=True)
 
 
 def get_off_targeting_oligo(minimum_offtarget_gap, df_blast):
