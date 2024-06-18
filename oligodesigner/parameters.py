@@ -49,7 +49,12 @@ hcr_two_sides = {
     'B8':{
         'seq_even_l':'CCTTGATTATCTCGTCTCat','seq_odd_r':'aaCATCACTCGCACTCTACC',
         'seq_even_r':'aaTCTACCGTCAAGTCAAAC','seq_odd_l':'CGTCTCCATCACTCGCACaa'
+    },
+    'B10':{
+        'seq_even_l':'CCTCTACCTACTCGACTAaa','seq_odd_r':'atCCCTAGCCGTAACTTCAC',
+        'seq_even_r':'atCCTACTCGACTACCCTAG','seq_odd_l':'CCTCAAGATACTCCTCTAaa'
     }
+
 }
 
 
