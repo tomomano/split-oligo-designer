@@ -34,12 +34,15 @@ $ pip install . # install oligodesigner
 
 ### Make database
 1. Download and make the database for blast. The database for the cDNA  can be found at [Ensembl](http://www.ensembl.org/info/data/ftp/index.html.)
-2. Generate the blast database according to the instruction of [NCBI](https://www.ncbi.nlm.nih.gov/books/NBK569841/). 
-	example: `./data/human_transcriptome`
+2. Generate the blast database according to the instruction of [NCBI](https://www.ncbi.nlm.nih.gov/books/NBK569841/).   
+	```
+	makeblastdb -in my_transcriptome.fa -parse_seqids -dbtype nucl -out my_transcriptome_db
+	```
+	You can find an example in data/human_transcriptome`
 	
 ### Download fasta template
 Download the fasta template from [NCBI](https://www.ncbi.nlm.nih.gov/) or else.
-	example: `./data/slc17a7/slc17a7_hs.fasta`
+	You can find an example in data/slc17a7/slc17a7_hs.fasta`
 
 ## Example usage
 The jupyter notebook is included `OligoDesign.ipynb`.
@@ -101,6 +104,15 @@ oligominer_param = {
 }
 ```
 
+
+## Selection
+You will obtain multiple output files including output files from OligoMiner. The final sequences are found in (your_fasta_name)_oligosets.csv.  
+The file contains the binding sequences with HCR reaction sites. You may need to further select the oligonucleotides. Since the choice of the number of oligos, binding positions, and combinations are highly dependent on the scientific question, the size of mRNA, and the research budget, I intentionally did not automate this selection process.  
+My recommended workflow for the selections of oligo is as follows:
+1. If the number of oligos in the oligosets.csv is less than 24 (12 pairs), select all oligos.  
+2. If the number is more than 24, you may want to narrow down the binding positions. In my experience, I have never seen a situation where you need more than 48 oligos. To narrow down the binding positions, survey the past FISH literature that provides the oligonucleotide sequence of your interest. For mouse and human brain, Allen Brain ISH database (https://mouse.brain-map.org/ or https://human.brain-map.org/ish/search) is a good place to start. Use the binding positions where the past literature has used, and exclude the oligos which do not bind to the positions. If there are no past literature available, skip this step.
+3. Select the oligos with the small intervals. "interval_after" indicates the distance between the oligo and the next oligo. You should select 24 to 48 oligos while keeping the intervals as small as possible. 
+4. If you could not get 24 oligos after the step 2 and 3, include oligos you have disregarded. The step 2 and 3 are not the absolute criteria. You can relax the selection criteria until you get 24 oligos.
 
 ## Citation
 
