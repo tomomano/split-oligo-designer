@@ -41,12 +41,12 @@ def generator(mFISH3D_param, oligominer_param, num_threads=1):
     io.add_id(oligominer_fasta)
 
     if self_remove:
-        seqid = sequence.refseqid_from_fasta(fasta)
-        # seqid = sequence.check_refseqid_exist(fasta, return_entrezid=False)
-        # if seqid is None:
-        #     seqid = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
-        # else:
-        #     _ = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
+        seqid = sequence.check_refseqid_exist(fasta, return_entrezid=True)
+        if seqid is None:
+            seqid = sequence.get_homology_in_database(fasta, database, num_threads=num_threads)
+        else:
+            pass
+
 
         # run blast
         df_blast = sequence.run_blast_df(oligominer_fasta, database, task='blastn-short', strand='plus', num_threads=num_threads)
